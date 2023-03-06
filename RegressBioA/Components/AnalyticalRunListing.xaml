@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="RegressBioA.Components.AnalyticalRunListing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:RegressBioA.Components"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <GroupBox Header="Analytical Runs">
+        <GroupBox.HeaderTemplate>
+            <DataTemplate>
+                <TextBlock Margin="10 0 0 0"
+                           Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           Text="{Binding}" />
+            </DataTemplate>
+        </GroupBox.HeaderTemplate>
+
+        <Grid>
+            <Grid>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility"
+                                Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasAnalyticalRuns}"
+                                         Value="False">
+                                <Setter Property="Visibility"
+                                        Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <TextBlock Padding="20"
+                           FontSize="16"
+                           TextWrapping="WrapWithOverflow"
+                           Text="Select a project to view its analytical runs" />
+            </Grid>
+
+            <Grid>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility"
+                                Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasAnalyticalRuns}"
+                                         Value="True">
+                                <Setter Property="Visibility"
+                                        Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <ListView BorderThickness="0"
+                          HorizontalContentAlignment="Stretch"
+                          ItemsSource="{Binding AnalyticalRuns}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Name}"></TextBlock>
+                                <materialDesign:PopupBox Grid.Column="1">
+                                    <StackPanel>
+                                        <Button Content="Hello" />
+                                        <Button Content="Hello" />
+                                        <Button Content="Hello" />
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </GroupBox>
+</UserControl>
