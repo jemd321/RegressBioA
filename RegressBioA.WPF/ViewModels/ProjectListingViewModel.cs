@@ -42,7 +42,7 @@ namespace RegressBioA.WPF.ViewModels
 
         private void ProjectStore_ProjectDeleted(object? sender, ProjectChangedEventArgs e)
         {
-            Guid projectID = e.Project.ID;
+            Guid projectID = e.Project.Id;
             var ItemVMToDelete = _projectListingItemViewModels.FirstOrDefault(itemVM => itemVM.ID == projectID);
 
             if (ItemVMToDelete is not null)
@@ -53,7 +53,7 @@ namespace RegressBioA.WPF.ViewModels
 
         private void ProjectStore_ProjectUpdated(object? sender, ProjectChangedEventArgs e)
         {
-            Guid projectID = e.Project.ID;
+            Guid projectID = e.Project.Id;
             var itemVMToUpdate = _projectListingItemViewModels.FirstOrDefault(itemVM => itemVM.ID == projectID);
 
             if (itemVMToUpdate is not null)

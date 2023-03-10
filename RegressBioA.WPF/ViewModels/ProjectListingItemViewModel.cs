@@ -22,7 +22,7 @@ namespace RegressBioA.WPF.ViewModels
 
         public string ProjectName => Project.Name;
 
-        public Guid ID => Project.ID;
+        public Guid ID => Project.Id;
 
         public Project Project { get; private set; }
 

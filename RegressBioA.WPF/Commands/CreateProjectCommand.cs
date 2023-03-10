@@ -26,7 +26,7 @@ namespace RegressBioA.WPF.Commands
         public override async Task ExecuteAsync(object? parameter)
         {
             string newProjectName = _parentViewModel.ProjectName;
-            var newProject = new Project(newProjectName);
+            var newProject = new Project(new Guid(), newProjectName, new List<AnalyticalRun>());
             await _projectStore.Create(newProject);
             _popupNavigationStore.ClosePopup();
         }

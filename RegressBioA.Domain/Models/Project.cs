@@ -10,9 +10,11 @@ namespace RegressBioA.Domain.Models
     {
         private readonly List<AnalyticalRun> _analyticalRuns = new();
 
-        public Project(string name)
+        public Project(Guid id, string name, List<AnalyticalRun> analyticalRuns)
         {
+            Id = id;
             Name = name;
+            _analyticalRuns = analyticalRuns;
             _analyticalRuns.Add(new AnalyticalRun("Test Run"));
         }
 
@@ -23,7 +25,7 @@ namespace RegressBioA.Domain.Models
             Name = newName;
         }
 
-        public Guid ID { get; } = Guid.NewGuid();
+        public Guid Id { get; }
 
         public IEnumerable<AnalyticalRun> AnalyticalRuns => _analyticalRuns;
 
