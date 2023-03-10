@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RegressBioA.Domain\RegressBioA.Domain.csproj" />
-    <ProjectReference Include="..\RegressBioA.EntitiyFramework\RegressBioA.EntitiyFramework.csproj" />
+    <ProjectReference Include="..\RegressBioA.EntityFramework\RegressBioA.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>

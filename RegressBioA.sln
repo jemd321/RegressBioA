@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegressBioA.WPF", "RegressB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegressBioA.Domain", "RegressBioA.Domain\RegressBioA.Domain.csproj", "{F667B59E-C7EA-4926-B299-77176DC28D02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegressBioA.EntitiyFramework", "RegressBioA.EntitiyFramework\RegressBioA.EntitiyFramework.csproj", "{E391A8C5-3F3C-4546-9E41-A26D1B0C3992}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegressBioA.EntityFramework", "RegressBioA.EntityFramework\RegressBioA.EntityFramework.csproj", "{9FF45DD2-8FA0-41E9-9509-D6198BE1E42F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{F667B59E-C7EA-4926-B299-77176DC28D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F667B59E-C7EA-4926-B299-77176DC28D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F667B59E-C7EA-4926-B299-77176DC28D02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E391A8C5-3F3C-4546-9E41-A26D1B0C3992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E391A8C5-3F3C-4546-9E41-A26D1B0C3992}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E391A8C5-3F3C-4546-9E41-A26D1B0C3992}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E391A8C5-3F3C-4546-9E41-A26D1B0C3992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FF45DD2-8FA0-41E9-9509-D6198BE1E42F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF45DD2-8FA0-41E9-9509-D6198BE1E42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF45DD2-8FA0-41E9-9509-D6198BE1E42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF45DD2-8FA0-41E9-9509-D6198BE1E42F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
