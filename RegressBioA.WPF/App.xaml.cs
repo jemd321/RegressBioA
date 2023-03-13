@@ -61,6 +61,8 @@ namespace RegressBioA.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             _host.Start();
+            var context = _host.Services.GetRequiredService<IDbContextFactory<ProjectsDbContext>>().CreateDbContext();
+            context.Database.Migrate();
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.DataContext = _host.Services.GetRequiredService<MainViewModel>();
             MainWindow.Show();

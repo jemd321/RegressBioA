@@ -25,7 +25,10 @@ namespace RegressBioA.EntityFramework.Queries
 
             IEnumerable<ProjectDTO> projectDTOs = await context.Projects.ToListAsync();
 
-            return projectDTOs.Select(p => new Project(p.Id, p.Name, p.AnalyticalRuns));
+            return projectDTOs
+                .Select(p => new Project(
+                    p.Id, p.Name, p.AnalyticalRuns
+                        .Select(ar => new AnalyticalRun(ar.Name, ar.Id)).ToList()));
         }
     }
 }

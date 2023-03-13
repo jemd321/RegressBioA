@@ -15,7 +15,7 @@ namespace RegressBioA.Domain.Models
             Id = id;
             Name = name;
             _analyticalRuns = analyticalRuns;
-            _analyticalRuns.Add(new AnalyticalRun("Test Run"));
+            _analyticalRuns.Add(new AnalyticalRun("Test Run", Guid.NewGuid()));
         }
 
         public string Name { get; private set; }

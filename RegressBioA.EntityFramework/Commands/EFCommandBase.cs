@@ -32,8 +32,22 @@ namespace RegressBioA.EntityFramework.Commands
             {
                 Id = project.Id,
                 Name = project.Name,
-                AnalyticalRuns = project.AnalyticalRuns.ToList() ?? null
+                AnalyticalRuns = CreateAnalyticalRunDTOs(project.AnalyticalRuns),
             };
+        }
+
+        protected static List<AnalyticalRunDTO> CreateAnalyticalRunDTOs(IEnumerable<AnalyticalRun> analyticalRuns)
+        {
+            var analyticalRunDTOs = new List<AnalyticalRunDTO>();
+            foreach (AnalyticalRun? analyticalRun in analyticalRuns)
+            {
+                analyticalRunDTOs.Add(new AnalyticalRunDTO
+                {
+                    Id = analyticalRun.Id,
+                    Name = analyticalRun.Name,
+                });
+            }
+            return analyticalRunDTOs;
         }
     }
 }

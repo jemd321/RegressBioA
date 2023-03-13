@@ -9,10 +9,13 @@ namespace RegressBioA.Domain.Models
     public class AnalyticalRun
     {
 
-        public AnalyticalRun(string name)
+        public AnalyticalRun(string name, Guid id)
         {
             Name = name;
+            Id = id;
         }
+
+        public Guid Id { get; }
 
         public string Name { get; }
     }

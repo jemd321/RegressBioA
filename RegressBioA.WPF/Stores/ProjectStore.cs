@@ -44,6 +44,7 @@ namespace RegressBioA.WPF.Stores
         {
             await _deleteProjectCommand.Execute(project.Id);
             ProjectDeleted?.Invoke(this, new ProjectChangedEventArgs(project));
+
         }
 
         public async Task Update(Project project)

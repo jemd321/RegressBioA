@@ -1,5 +1,4 @@
-﻿using RegressBioA.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,6 @@ namespace RegressBioA.EntityFramework.DTOs
 
         public string Name { get; set; }
 
-        public List<AnalyticalRun> AnalyticalRuns { get; set; }
+        public ICollection<AnalyticalRunDTO> AnalyticalRuns { get; set; }
     }
 }
