@@ -35,10 +35,35 @@ namespace RegressBioA.WPF.ViewModels
             _selectedProjectStore = selectedProjectStore;
             _projectStore = projectStore;
 
+            LoadProjectsCommand = new LoadProjectsCommand(errorHandler, projectStore);
+
+            WeakEventManager<ProjectStore, EventArgs>.AddHandler(projectStore, nameof(ProjectStore.ProjectsLoaded), ProjectStore_ProjectsLoaded);
             WeakEventManager<ProjectStore, ProjectChangedEventArgs>.AddHandler(projectStore, nameof(ProjectStore.ProjectCreated), ProjectStore_ProjectCreated);
             WeakEventManager<ProjectStore, ProjectChangedEventArgs>.AddHandler(projectStore, nameof(ProjectStore.ProjectUpdated), ProjectStore_ProjectUpdated);
             WeakEventManager<ProjectStore, ProjectChangedEventArgs>.AddHandler(projectStore, nameof(ProjectStore.ProjectDeleted), ProjectStore_ProjectDeleted);
         }
+
+        private void ProjectStore_ProjectsLoaded(object? sender, EventArgs e)
+        {
+            _projectListingItemViewModels.Clear();
+
+            foreach (Project? project in _projectStore.Projects)
+            {
+                var newProjectListingItemVM = new ProjectListingItemViewModel(project, _errorHandler, _popupNavigationStore, _selectedProjectStore, _projectStore);
+                _projectListingItemViewModels.Add(newProjectListingItemVM);
+            }
+        }
+
+        // TODO refactor this method to use DI - viewModel factories for all VMs?
+        public static ProjectListingViewModel LoadViewModel(AsyncCommandErrorHandler errorHandler, PopupNavigationStore popupNavigationStore, SelectedProjectStore selectedProjectStore, ProjectStore projectStore)
+        {
+
+            ProjectListingViewModel viewModel = new ProjectListingViewModel(errorHandler, popupNavigationStore, selectedProjectStore, projectStore);
+            viewModel.LoadProjectsCommand.Execute(null);
+            return viewModel;
+        }
+
+        public ICommand LoadProjectsCommand { get; }
 
         private void ProjectStore_ProjectDeleted(object? sender, ProjectChangedEventArgs e)
         {

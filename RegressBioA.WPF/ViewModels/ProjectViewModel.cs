@@ -25,7 +25,8 @@ namespace RegressBioA.WPF.ViewModels
         /// <param name="selectedProjectStore">The project store, acting as the single source of truth for which project the user has open.</param>
         public ProjectViewModel(SelectedProjectStore selectedProjectStore, ProjectStore projectStore, PopupNavigationStore popupNavigationStore, AsyncCommandErrorHandler asyncCommandErrorHandler)
         {
-            ProjectListingViewModel = new ProjectListingViewModel(asyncCommandErrorHandler, popupNavigationStore, selectedProjectStore, projectStore);
+            // Refactor for DI
+            ProjectListingViewModel = ProjectListingViewModel.LoadViewModel(asyncCommandErrorHandler, popupNavigationStore, selectedProjectStore, projectStore);
             AnalyticalRunListingViewModel = new AnalyticalRunListingViewModel(selectedProjectStore);
             _selectedProjectStore = selectedProjectStore;
             _projectStore = projectStore;

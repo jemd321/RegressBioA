@@ -16,7 +16,12 @@ namespace RegressBioA.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProjectDTO>().HasMany(p => p.AnalyticalRuns).WithOne().OnDelete(DeleteBehavior.Cascade);
+            // Configure Cascade Delete so that removing a project also removes all analytical runs.
+            modelBuilder.Entity<ProjectDTO>()
+                .HasMany(p => p.AnalyticalRuns)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
             base.OnModelCreating(modelBuilder);
         }
 

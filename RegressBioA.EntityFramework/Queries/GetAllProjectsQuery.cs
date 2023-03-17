@@ -23,12 +23,12 @@ namespace RegressBioA.EntityFramework.Queries
         {
             using var context = _dbContextFactory.CreateDbContext();
 
-            IEnumerable<ProjectDTO> projectDTOs = await context.Projects.ToListAsync();
+            IEnumerable<ProjectDTO> projectDTOs = await context.Projects.Include(p => p.AnalyticalRuns).ToListAsync();
 
-            return projectDTOs
-                .Select(p => new Project(
-                    p.Id, p.Name, p.AnalyticalRuns
-                        .Select(ar => new AnalyticalRun(ar.Name, ar.Id)).ToList()));
+            // TODO, refactor ugly LINQ. Automapper or would that be overengineering at this stage?
+            return projectDTOs.Select(p => new Project(p.Id, p.Name, p.AnalyticalRuns.Select(ar => new AnalyticalRun(ar.Name, ar.Id)).ToList()));
+
+
         }
     }
 }
