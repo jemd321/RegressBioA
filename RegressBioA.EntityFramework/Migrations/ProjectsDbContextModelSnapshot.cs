@@ -56,7 +56,8 @@ namespace RegressBioA.EntityFramework.Migrations
                 {
                     b.HasOne("RegressBioA.EntityFramework.DTOs.ProjectDTO", null)
                         .WithMany("AnalyticalRuns")
-                        .HasForeignKey("ProjectDTOId");
+                        .HasForeignKey("ProjectDTOId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("RegressBioA.EntityFramework.DTOs.ProjectDTO", b =>

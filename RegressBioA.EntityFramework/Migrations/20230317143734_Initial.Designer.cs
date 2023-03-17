@@ -11,7 +11,7 @@ using RegressBioA.EntityFramework;
 namespace RegressBioA.EntityFramework.Migrations
 {
     [DbContext(typeof(ProjectsDbContext))]
-    [Migration("20230311125251_Initial")]
+    [Migration("20230317143734_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -59,7 +59,8 @@ namespace RegressBioA.EntityFramework.Migrations
                 {
                     b.HasOne("RegressBioA.EntityFramework.DTOs.ProjectDTO", null)
                         .WithMany("AnalyticalRuns")
-                        .HasForeignKey("ProjectDTOId");
+                        .HasForeignKey("ProjectDTOId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("RegressBioA.EntityFramework.DTOs.ProjectDTO", b =>

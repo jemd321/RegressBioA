@@ -38,7 +38,8 @@ namespace RegressBioA.EntityFramework.Migrations
                         name: "FK_AnalyticalRuns_Projects_ProjectDTOId",
                         column: x => x.ProjectDTOId,
                         principalTable: "Projects",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

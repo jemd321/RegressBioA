@@ -14,11 +14,12 @@ namespace RegressBioA.EntityFramework
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ProjectDTO>().HasMany(p => p.AnalyticalRuns).WithOne();
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProjectDTO>().HasMany(p => p.AnalyticalRuns).WithOne().OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<ProjectDTO> Projects { get; set; }
         public DbSet<AnalyticalRunDTO> AnalyticalRuns { get; set; }
     }
